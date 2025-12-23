@@ -1,0 +1,10 @@
+module Task_2(
+input clk,
+input areset,
+input d,
+output reg q);
+always @ (posedge clk or posedge areset) begin
+if (areset) q<=0;
+else q<=d;
+end
+endmodule
