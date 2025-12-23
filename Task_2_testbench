@@ -1,0 +1,24 @@
+module Task_2_tb;
+reg clk;
+reg areset;
+reg d;
+wire q;
+
+Task_2 dut (.clk(clk),.areset(areset),.d(d),.q(q));
+
+initial begin 
+clk=0;
+forever #5 clk=~clk;
+end
+initial begin
+areset=1;#10
+areset=0;#10
+d=1;#10
+d=0;#10
+d=1;#15
+areset=1;
+#15 d=1;
+#10
+$finish;
+end
+endmodule
